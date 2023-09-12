@@ -1,6 +1,6 @@
 package com.github.joellhss.challengeoftheweekivcompass.utils;
 
-import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
+import com.github.joellhss.challengeoftheweekivcompass.model.dto.CarDTO;
 
 public class StringFormatter {
     public static String formatter(String text) {
@@ -12,7 +12,7 @@ public class StringFormatter {
         return newText.toString().trim();
     }
 
-    public static CarEntity StringFormatterCarEntity(CarEntity car) {
+    public static CarDTO StringFormatterCarEntity(CarDTO car) {
         car.setBrand(formatter(car.getBrand()));
         car.setColor(formatter(car.getColor()));
         car.setModel(formatter(car.getModel()));

@@ -1,33 +1,35 @@
-package com.github.joellhss.challengeoftheweekivcompass.model;
+package com.github.joellhss.challengeoftheweekivcompass.model.dto;
 
-import jakarta.persistence.*;
+
+import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-@Entity(name = "db_car")
-public class CarEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long chassiId;
+@Valid
+public class CarDTO {
     @NotBlank
-    @Column(nullable = false)
+    @NotNull
     private String model;
     @NotBlank
-    @Column(nullable = false)
+    @NotNull
     private String brand;
     @NotBlank
-    @Column(nullable = false)
+    @NotNull
     private String color;
     @NotBlank
-    @Column(nullable = false)
+    @NotNull
     private String fabricationYear;
 
-    public Long getChassiId() {
-        return chassiId;
-    }
+    public static CarEntity DTOToEntity(CarDTO carDTO) {
+        CarEntity carEntity = new CarEntity();
 
-    public void setChassiId(Long chassiId) {
-        this.chassiId = chassiId;
+        carEntity.setModel(carDTO.getModel());
+        carEntity.setBrand(carDTO.getBrand());
+        carEntity.setColor(carDTO.getColor());
+        carEntity.setFabricationYear(carDTO.getFabricationYear());
+
+        return carEntity;
     }
 
     public String getModel() {
@@ -60,16 +62,5 @@ public class CarEntity {
 
     public void setFabricationYear(String fabricationYear) {
         this.fabricationYear = fabricationYear;
-    }
-
-    @Override
-    public String toString() {
-        return "CarEntity{" +
-                "idChassi=" + chassiId +
-                ", model='" + model + '\'' +
-                ", brand='" + brand + '\'' +
-                ", color='" + color + '\'' +
-                ", fabricationYear='" + fabricationYear + '\'' +
-                '}';
     }
 }
