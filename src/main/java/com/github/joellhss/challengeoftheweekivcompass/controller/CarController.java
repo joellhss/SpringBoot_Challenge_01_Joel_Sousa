@@ -2,6 +2,8 @@ package com.github.joellhss.challengeoftheweekivcompass.controller;
 
 import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
 import com.github.joellhss.challengeoftheweekivcompass.service.CarService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -17,12 +19,13 @@ public class CarController {
     }
 
     @PostMapping
-    public void createCar(@RequestBody CarEntity car) {
+    public ResponseEntity<String> createCar(@RequestBody CarEntity car) {
         service.addCar(car);
+        return ResponseEntity.status(HttpStatus.OK).body("Successful operation!");
     }
     @GetMapping("/{id}")
     public Optional<CarEntity> getCarByIdChassi(@PathVariable Long id) {
-
         return service.getCarByIdChassi(id);
     }
+
 }
