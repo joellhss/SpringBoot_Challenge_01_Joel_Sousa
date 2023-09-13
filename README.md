@@ -5,6 +5,9 @@ POST requests: /cars
 GET requests: /cars/{chassiId}
 ```
 
+## About the project
+This project was developed for the first challenge of the Compass scholarship program. For this Java project, Spring Boot technology was utilized along with the following dependencies: Data JPA, JDBC, Thymeleaf, and Spring Web. Furthermore, for data persistence, the MySQL database running in a Docker container was used.
+
 ## Instructions
 
 ### POST
@@ -65,5 +68,4 @@ GET type requests can be made as per the example below.
 - **Error 404: Not Found.**
   - Oops! It appears that this chassisId has not yet been registered.
 - **Error 500: Unavailable Server.**
-```
 

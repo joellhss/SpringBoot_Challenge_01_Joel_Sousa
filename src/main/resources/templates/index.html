@@ -8,11 +8,12 @@
     <style>
         body{
             font-family: sans-serif;
+            padding: 50px 200px;
         }
 
         .codeReference {
             margin-top: 10px;
-            background-color: lightblue;
+            background-color: #DFEEF7;
             padding: 10px 50px;
             border-radius: 10px;
         }
@@ -36,15 +37,20 @@
         }
 
         span, code {
-            color: red;
+            color: #494F91;
         }
+
+        h1, p, li, strong, h3, h2, hr, .code{
+            color: #323638;
+        }
+
 
 
 
     </style>
 </head>
 <body>
-<h1>Welcome to the Cars API!</h1>
+<h1>Welcome to the Cars API</h1>
 <p>Start using the URI <code>/cars</code>.</p>
 <div class="codeReference">
     <p><strong>POST requests: </strong><code>/cars</code> </p>
@@ -98,14 +104,14 @@
 
 <h3>GET</h3>
 <hr>
-<p>GET type requests can be made as per the example below.</p>
+<p>As requisições do tipo GET podem ser realizadas conforme o exemplo abaixo.</p>
 <p><strong>Example URI</strong></p>
 <div class="code-block">
             <pre class="code">
                 /cars/<span>1</span>
             </pre>
 </div>
-<p><strong>Example response</strong></p>
+<p><strong>Sample response</strong></p>
 <div class="code-block">
             <pre class="code">
                 {
