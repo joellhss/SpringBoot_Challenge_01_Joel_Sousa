@@ -4,25 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cars API</title>
+
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+
+        .codeReference {
+            margin-top: 10px;
+            background-color: lightblue;
+            padding: 10px 50px;
+            border-radius: 10px;
+        }
+
+        .code-block {
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        .code {
+            padding: 10px 0;
+            background-color: #f8f8f8;
+        }
+
+        h3 {
+            margin: 40px 0 5px 0;
+        }
+
+        li{
+            margin: 5px 0;
+        }
+
+        span, code {
+            color: red;
+        }
+
+
+
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Cars API!</h1>
-    <p>Start using the URI <code style="color: red">/cars</code>.</p>
-    <div style="
-        margin-top: 10px;
-        background-color: lightgray;
-        padding: 10px 50px;
-        border-radius: 10px;
-    ">
-        <p><strong>POST requests: </strong><code style="color: red">/cars</code> </p>
-        <p><strong>GET requests: </strong><code style="color: red">/cars/{idChassi}</code></p>
-    </div>
+<h1>Welcome to the Cars API!</h1>
+<p>Start using the URI <code>/cars</code>.</p>
+<div class="codeReference">
+    <p><strong>POST requests: </strong><code>/cars</code> </p>
+    <p><strong>GET requests: </strong><code>/cars/{chassiId}</code></p>
+</div>
 
 
 
 <h2>Instructions</h2>
-<h2>Rules</h2>
-<h2>Errors</h2>
+<h3>POST</h3>
+<hr>
+<p>The JSON in the body of your POST request must be done as per the code example below.</p>
+
+<div class="code-block">
+            <pre class="code">
+                {
+                    "model": <span>"X5"</span>,
+                    "brand": <span>"bmw"</span>,
+                    "color": <span>"green"</span>,
+                    "fabricationYear": <span>"2018/2019"</span>
+                }
+            </pre>
+</div>
+
+
+<p><strong>Common rules:</strong></p>
+<ul>
+    <li>Null values and empty fields are not allowed.</li>
+    <li>Element properties are not case sensitive and will be adjusted automatically.</li>
+    <li>The "brand" element is configured to allow only the brands: Chevrolet, Volvo, BMW and Ford.</li>
+    <li>The "fabricationYear" element must follow the "year/year" format, other formatting will not be allowed. Example: "2022/2023".</li>
+    <li>The "chassisId" field will get a value automatically. It is not necessary to add this element in the body of the request.</li>
+</ul>
+
+<p><strong>Common errors:</strong></p>
+<ul>
+    <li><strong>Error 404: Not Found.</strong>
+        <ul><li>Only BMW, Chevrolet, Ford and Volvo brands are permitted.</li></ul>
+    </li>
+    <li><strong>Error 400: Invalid Data.</strong>
+        <ul>
+            <li>Please check that the 'fabricationYear' field property is in the format 'year/year'.</li>
+            <li>All fields must be present and empty fields are not permitted.</li>
+            <li>Empty fields are not allowed.</li>
+        </ul>
+    </li>
+    <li><strong>Error 500: Unavailable Server.</strong></li>
+</ul>
+
+
+
+<h3>GET</h3>
+<hr>
+<p>GET type requests can be made as per the example below.</p>
+<p><strong>Example URI</strong></p>
+<div class="code-block">
+            <pre class="code">
+                /cars/<span>1</span>
+            </pre>
+</div>
+<p><strong>Example response</strong></p>
+<div class="code-block">
+            <pre class="code">
+                {
+                    "chassiId": <span>1</span>,
+                    "model": <span>"X5"</span>,
+                    "brand": <span>"bmw"</span>,
+                    "color": <span>"green"</span>,
+                    "fabricationYear": <span>"2018/2019"</span>
+                }
+            </pre>
+</div>
+
+<p><strong>Common errors:</strong></p>
+<ul>
+    <li><strong>Error 404: Not Found.</strong>
+        <ul><li>Oops! It appears that this chassiId has not yet been registered.</li></ul>
+    </li>
+    <li><strong>Error 500: Unavailable Server.</strong></li>
+</ul>
 
 </body>
 </html>

@@ -41,4 +41,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleNullPointerException(NullPointerException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error 400: Invalid Data. \nAll fields must be present and empty fields are not permitted.");
     }
+
+    @ExceptionHandler(StringIndexOutOfBoundsException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<String> handleStringIsEmptyException(StringIndexOutOfBoundsException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error 400: Invalid Data. \nEmpty fields are not allowed.");
+    }
 }

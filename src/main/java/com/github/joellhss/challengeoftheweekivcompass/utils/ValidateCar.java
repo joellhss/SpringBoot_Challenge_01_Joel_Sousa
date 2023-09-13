@@ -6,11 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ValidateCar {
 
-    public static boolean validateAll(CarDTO car) {
-       return validateBrand(car.getBrand())
-               && validateFabricationYear(car.getFabricationYear());
-    }
-
     public static boolean validateBrand(String valor) {
         try {
             Brands.valueOf(valor.toUpperCase());

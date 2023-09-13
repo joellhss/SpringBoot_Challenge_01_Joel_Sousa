@@ -23,10 +23,10 @@ public class CarService{
 
     public ResponseEntity<String> addCar(CarDTO car) {
         if (!ValidateCar.validateBrand(car.getBrand())){
-            throw new ResourceNotFoundException("Error 404: Not Found.");
+            throw new ResourceNotFoundException("Error 404: Not Found.\nOnly BMW, Chevrolet, Ford and Volvo brands are permitted.");
         }
-        if (!ValidateCar.validateAll(car)) {
-            throw new BadRequestException("Error 400: Invalid Data.");
+        if (!ValidateCar.validateFabricationYear(car.getFabricationYear())) {
+            throw new BadRequestException("Error 400: Invalid Data.\nPlease check that the 'fabricationYear' field property is in the format 'year/year'.");
         }
 
         StringFormatter.StringFormatterCarEntity(car);
@@ -37,7 +37,12 @@ public class CarService{
     }
 
     public Optional<CarEntity> getCarByIdChassi(Long id) {
-        return repository.findById(id);
+        var response = repository.findById(id);
+        if(response.isEmpty()) {
+            throw new ResourceNotFoundException("Error 404: Not Found.\nOops! It appears that this chassiId has not yet been registered.");
+        }
+
+        return response;
     }
 
 }
