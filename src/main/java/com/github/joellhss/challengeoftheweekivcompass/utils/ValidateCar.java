@@ -1,6 +1,5 @@
 package com.github.joellhss.challengeoftheweekivcompass.utils;
 
-import com.github.joellhss.challengeoftheweekivcompass.model.dto.CarDTO;
 import org.springframework.stereotype.Component;
 
 @Component

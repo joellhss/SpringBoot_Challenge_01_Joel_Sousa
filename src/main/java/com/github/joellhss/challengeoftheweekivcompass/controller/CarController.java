@@ -1,7 +1,7 @@
 package com.github.joellhss.challengeoftheweekivcompass.controller;
 
 import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
-import com.github.joellhss.challengeoftheweekivcompass.model.dto.CarDTO;
+import com.github.joellhss.challengeoftheweekivcompass.dto.CarDTO;
 import com.github.joellhss.challengeoftheweekivcompass.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,7 @@ public class CarController {
         return service.addCar(car);
     }
     @GetMapping("/{id}")
-    public Optional<CarEntity> getCarByIdChassi(@PathVariable Long id) {
+    public CarDTO getCarByIdChassi(@PathVariable Long id) {
         return service.getCarByIdChassi(id);
     }
 

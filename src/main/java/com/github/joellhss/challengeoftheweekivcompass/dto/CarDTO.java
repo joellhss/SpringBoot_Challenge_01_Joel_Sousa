@@ -1,4 +1,4 @@
-package com.github.joellhss.challengeoftheweekivcompass.model.dto;
+package com.github.joellhss.challengeoftheweekivcompass.dto;
 
 
 import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Valid
 public class CarDTO {
+    private Long chassiId;
     @NotBlank
     @NotNull
     private String model;
@@ -30,6 +31,24 @@ public class CarDTO {
         carEntity.setFabricationYear(carDTO.getFabricationYear());
 
         return carEntity;
+    }
+    public static CarDTO EntityToDTO(CarEntity carEntity) {
+        CarDTO carDTO = new CarDTO();
+        carDTO.setChassiId(carEntity.getChassiId());
+        carDTO.setModel(carEntity.getModel());
+        carDTO.setBrand(carEntity.getBrand());
+        carDTO.setColor(carEntity.getColor());
+        carDTO.setFabricationYear(carEntity.getFabricationYear());
+
+        return carDTO;
+    }
+
+    public Long getChassiId() {
+        return chassiId;
+    }
+
+    public void setChassiId(Long chassiId) {
+        this.chassiId = chassiId;
     }
 
     public String getModel() {

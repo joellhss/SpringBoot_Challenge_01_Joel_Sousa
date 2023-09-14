@@ -1,6 +1,6 @@
 package com.github.joellhss.challengeoftheweekivcompass.utils;
 
-import com.github.joellhss.challengeoftheweekivcompass.model.dto.CarDTO;
+import com.github.joellhss.challengeoftheweekivcompass.dto.CarDTO;
 
 public class StringFormatter {
     public static String formatter(String text) {

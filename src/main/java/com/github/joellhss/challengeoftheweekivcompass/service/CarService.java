@@ -3,7 +3,7 @@ package com.github.joellhss.challengeoftheweekivcompass.service;
 import com.github.joellhss.challengeoftheweekivcompass.config.customExceptions.BadRequestException;
 import com.github.joellhss.challengeoftheweekivcompass.config.customExceptions.ResourceNotFoundException;
 import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
-import com.github.joellhss.challengeoftheweekivcompass.model.dto.CarDTO;
+import com.github.joellhss.challengeoftheweekivcompass.dto.CarDTO;
 import com.github.joellhss.challengeoftheweekivcompass.repository.CarRepository;
 import com.github.joellhss.challengeoftheweekivcompass.utils.StringFormatter;
 import com.github.joellhss.challengeoftheweekivcompass.utils.ValidateCar;
@@ -31,18 +31,18 @@ public class CarService{
 
         StringFormatter.StringFormatterCarEntity(car);
 
-        repository.save(CarDTO.DTOToEntity(car));
+        CarEntity save = repository.save(CarDTO.DTOToEntity(car));
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("Successful operation!");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Successful operation!\nNote the generated Chassis Id: " + save.getChassiId());
     }
 
-    public Optional<CarEntity> getCarByIdChassi(Long id) {
+    public CarDTO getCarByIdChassi(Long id) {
         var response = repository.findById(id);
         if(response.isEmpty()) {
             throw new ResourceNotFoundException("Error 404: Not Found.\nOops! It appears that this chassiId has not yet been registered.");
         }
 
-        return response;
+        return CarDTO.EntityToDTO(response.get());
     }
 
 }

@@ -40,13 +40,9 @@
             color: #494F91;
         }
 
-        h1, p, li, strong, h3, h2, hr, .code{
+        h1, p, li, strong, h3, h2, hr, em, .code{
             color: #323638;
         }
-
-
-
-
     </style>
 </head>
 <body>
@@ -60,6 +56,20 @@
 
 
 <h2>Instructions</h2>
+<h3>Connection to the database</h3>
+<p>Before running this application, you must have the MySQL DBMS running on your machine. The default user used is:</p>
+<div class="code-block">
+            <pre class="code">
+               user: <span>root</span>
+               password: <span>root</span>
+            </pre>
+</div>
+
+<p><strong>Another important requirement is that you create a schema or database with the name: <span>db_car</span>.</strong></p>
+<p>After these steps, you will be ready to run the application.</p>
+
+<em>If you need to run this application in another DBMS or with other configurations, don't forget to change the application.properties settings and add the dependencies in the pom.xml file.</em>
+
 <h3>POST</h3>
 <hr>
 <p>The JSON in the body of your POST request must be done as per the code example below.</p>
@@ -104,7 +114,7 @@
 
 <h3>GET</h3>
 <hr>
-<p>As requisições do tipo GET podem ser realizadas conforme o exemplo abaixo.</p>
+<p>GET type requests can be made as per the example below.</p>
 <p><strong>Example URI</strong></p>
 <div class="code-block">
             <pre class="code">
