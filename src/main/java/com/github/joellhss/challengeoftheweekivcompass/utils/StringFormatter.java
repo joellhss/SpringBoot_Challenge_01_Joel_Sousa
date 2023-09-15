@@ -13,7 +13,7 @@ public class StringFormatter {
     }
 
     public static CarDTO StringFormatterCarEntity(CarDTO car) {
-        car.setBrand(formatter(car.getBrand()));
+        car.setBrand(Brands.valueOf(car.getBrand().toUpperCase()).getDefaultBrand());
         car.setColor(formatter(car.getColor()));
         car.setModel(formatter(car.getModel()));
 

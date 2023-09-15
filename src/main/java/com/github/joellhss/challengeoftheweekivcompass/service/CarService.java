@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 @Service
 public class CarService{
@@ -45,4 +47,29 @@ public class CarService{
         return CarDTO.EntityToDTO(response.get());
     }
 
+    public List<CarDTO> getAllCars() {
+        List<CarEntity> allCarsEntity = repository.findAll();
+        if(allCarsEntity.isEmpty()) {
+            throw new ResourceNotFoundException("Error 404: Not Found.\nOops! It appears that no cars have been registered yet.");
+        };
+
+        List<CarDTO> allCarsDTO = new ArrayList<>();
+        allCarsEntity.forEach(entity -> {
+            allCarsDTO.add(CarDTO.EntityToDTO(entity));
+        });
+
+        return allCarsDTO;
+    }
+
+    public ResponseEntity<String> updateCarByChassiId(Long id, CarDTO carDTO) {
+        if (carDTO.getChassiId() != null && id != carDTO.getChassiId()) {
+            throw new BadRequestException("Error 400: Invalid Data.\nThe 'chassiId' field is not necessary in the request body, but if you choose to add it, it must be the same as the URI.");
+        }
+
+        carDTO.setChassiId(id);
+
+        addCar(carDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Successful operation!");
+    }
 }

@@ -25,6 +25,10 @@ public class CarDTO {
     public static CarEntity DTOToEntity(CarDTO carDTO) {
         CarEntity carEntity = new CarEntity();
 
+        if(carDTO.getChassiId() != null) {
+            carEntity.setChassiId(carDTO.getChassiId());
+        }
+
         carEntity.setModel(carDTO.getModel());
         carEntity.setBrand(carDTO.getBrand());
         carEntity.setColor(carDTO.getColor());

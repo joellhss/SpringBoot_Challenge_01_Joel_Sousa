@@ -6,6 +6,7 @@ import com.github.joellhss.challengeoftheweekivcompass.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,4 +28,13 @@ public class CarController {
         return service.getCarByIdChassi(id);
     }
 
+    @GetMapping("/all")
+    public List<CarDTO> getAllCars() {
+        return service.getAllCars();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateCarByChassiId(@PathVariable Long id, @RequestBody CarDTO carDTO) {
+        return service.updateCarByChassiId(id, carDTO);
+    }
 }
