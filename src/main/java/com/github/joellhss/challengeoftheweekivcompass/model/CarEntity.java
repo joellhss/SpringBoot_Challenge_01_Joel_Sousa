@@ -2,9 +2,8 @@ package com.github.joellhss.challengeoftheweekivcompass.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
-@Entity(name = "db_car")
+@Entity(name = "table_car")
 public class CarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
