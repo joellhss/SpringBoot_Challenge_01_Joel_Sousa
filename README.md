@@ -136,5 +136,7 @@ To change a car that has already been created, enter the chassisId in the same w
 Thank you to the SMs and instructors at Compass for all the tips and guidance in completing this project.
 ---
 
-<p align="center">Made with ❤️ by [Joel Sousa](https://github.com/joellhss).</p>
+<p align="center">
+Made with ❤️ by <a href="https://github.com/joellhss">Joel Sousa</a>.
+</p>
 
