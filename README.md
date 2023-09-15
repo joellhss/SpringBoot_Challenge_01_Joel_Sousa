@@ -27,9 +27,7 @@ user: root
 password: root
 ```
 
-Another important requirement is that you create a schema or database with the name: `db_car`.
-
-After these steps, you will be ready to run the application.
+After completing these steps, you will be ready to run the application. When this API is executed, it will use these settings to create a database called `db_car`.G
 
 *If you need to run this application in another DBMS or with other configurations, don't forget to change the `application.properties` settings and add the dependencies in the `pom.xml` file.*
 
