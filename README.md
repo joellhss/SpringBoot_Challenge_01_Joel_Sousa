@@ -27,7 +27,7 @@ user: root
 password: root
 ```
 
-After completing these steps, you will be ready to run the application. When this API is executed, it will use these settings to create a database called `db_car`.G
+After completing these steps, you will be ready to run the application. When this API is executed, it will use these settings to create a database called `db_car`.
 
 *If you need to run this application in another DBMS or with other configurations, don't forget to change the `application.properties` settings and add the dependencies in the `pom.xml` file.*
 
