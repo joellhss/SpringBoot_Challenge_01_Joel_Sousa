@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public ResponseEntity<String> handleInternalServerErrorException(InternalServerErrorException ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error 500: Internal Server Error.\n" + ex.getMessage());
     }
 
     @ExceptionHandler(NullPointerException.class)
@@ -47,5 +47,12 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResponseEntity<String> handleStringIsEmptyException(StringIndexOutOfBoundsException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error 400: Invalid Data. \nEmpty fields are not allowed.");
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<String> handleResourceNotFoundException(Exception ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error " + HttpStatus.BAD_REQUEST.value() + ": " + ex.getMessage());
     }
 }
