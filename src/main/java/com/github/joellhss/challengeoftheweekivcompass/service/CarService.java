@@ -2,7 +2,7 @@ package com.github.joellhss.challengeoftheweekivcompass.service;
 
 import com.github.joellhss.challengeoftheweekivcompass.config.customExceptions.BadRequestException;
 import com.github.joellhss.challengeoftheweekivcompass.config.customExceptions.ResourceNotFoundException;
-import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
+import com.github.joellhss.challengeoftheweekivcompass.entity.CarEntity;
 import com.github.joellhss.challengeoftheweekivcompass.dto.CarDTO;
 import com.github.joellhss.challengeoftheweekivcompass.repository.CarRepository;
 import com.github.joellhss.challengeoftheweekivcompass.utils.StringFormatter;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 @Service
 public class CarService{
 

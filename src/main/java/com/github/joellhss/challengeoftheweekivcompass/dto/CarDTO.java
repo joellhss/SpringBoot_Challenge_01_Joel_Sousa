@@ -1,7 +1,7 @@
 package com.github.joellhss.challengeoftheweekivcompass.dto;
 
 
-import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
+import com.github.joellhss.challengeoftheweekivcompass.entity.CarEntity;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

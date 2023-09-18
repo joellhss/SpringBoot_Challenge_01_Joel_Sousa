@@ -1,13 +1,11 @@
 package com.github.joellhss.challengeoftheweekivcompass.controller;
 
-import com.github.joellhss.challengeoftheweekivcompass.model.CarEntity;
 import com.github.joellhss.challengeoftheweekivcompass.dto.CarDTO;
 import com.github.joellhss.challengeoftheweekivcompass.service.CarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/cars")

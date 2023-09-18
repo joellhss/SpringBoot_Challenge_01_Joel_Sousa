@@ -1,4 +1,4 @@
-package com.github.joellhss.challengeoftheweekivcompass.model;
+package com.github.joellhss.challengeoftheweekivcompass.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
